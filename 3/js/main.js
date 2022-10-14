@@ -1,26 +1,18 @@
 function getRandom(min, max) {
 
-  if (min < 0 || max < 0 || typeof(min) !== 'number' || typeof(max) !== 'number') {
+  if (min < 0 || max < 0 ) {
     return NaN;
-  } else if (min >= 0 && max >= 0) {
+  } else {
     const lower = Math.ceil(Math.min(min,max));
     const upper = Math.floor(Math.max(min,max));
-    if (lower === upper) {
-      return lower;
-    } else if (lower > upper) {
-      return NaN;
-    } else {
-      return Math.floor(lower + Math.random() * (upper + 1 - lower));
-    }
-  } else {
-    return NaN;
+    return Math.floor(lower + Math.random() * (upper + 1 - lower));
   }
 }
 
-getRandom();
+getRandom(1,5);
 
 function getRandomFloat(min, max, digits) {
-  if (min < 0 || max < 0 || typeof(min) !== 'number' || typeof(max) !== 'number' || typeof(digits) !== 'number' || digits < 0 || digits > 100 || Math.ceil(digits) !== Math.floor(digits) ) {
+  if (min < 0 || max < 0 ) {
     return NaN;
   } else {
     const lower = Math.min(min,max);
@@ -29,4 +21,4 @@ function getRandomFloat(min, max, digits) {
   }
 }
 
-getRandomFloat();
+getRandomFloat(1,5,4);
